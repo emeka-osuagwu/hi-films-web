@@ -20,11 +20,10 @@
 		methods: {
 			getFilms(){
 				axios.get(baseUrl + 'films')
-				.then(
-					res => {
-						console.log(res)
-					}
-				)
+				.then(res => res.data)
+				.then( res => {
+					console.log(res)
+				})
 			}
 		},
 		created(){
