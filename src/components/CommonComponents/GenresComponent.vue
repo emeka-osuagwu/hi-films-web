@@ -10,6 +10,7 @@
 <script>
 	export default {
 		name: 'GenresComponent',
+		props: ['films'],
 		methods: {
 		},
 		created(){

@@ -8,16 +8,16 @@
 
 		<div class="content">
 			<div class="txt-center margin-top-18">
-				<a href="#"><img v-bind:src="images/ad_728x90.png" alt=""></a>
+				<a href="#"><img src="../assets/images/ad_728x90.png" alt=""></a>
 			</div>
 			<div class="clearFloat"></div>
 			<div class="part">
 				<h2>Most Recent</h2>
-				<app-films></app-films>
+				<app-films  v-for="film in films" :film="film" ></app-films>
 				<div class="clearFloat"></div>
 			</div>
 			<div class="txt-center margin-bottom-18">
-				<a href="#"><img src="images/ad_728x90.png" alt=""></a>
+				<a href="#"><img src="../assets/images/ad_728x90.png" alt=""></a>
 			</div>
 			<div class="clearFloat"></div>
 			<app-footer></app-footer>
@@ -37,7 +37,6 @@
 	import FooterComponent from './CommonComponents/FooterComponent.vue';
 	import HeaderComponent from './CommonComponents/HeaderComponent.vue';
 
-
 	export default {
 		name: 'HomeComponent',
 		components: {
@@ -48,6 +47,7 @@
 		},
 		data() {
 			return {
+				films: null,
 				loading: true,
 				isLogin: false
 			}
@@ -57,7 +57,7 @@
 				axios.get(baseUrl + 'films')
 				.then(res => res.data)
 				.then( res => {
-					console.log(res)
+					this.films = res.data
 				})
 			}
 		},
