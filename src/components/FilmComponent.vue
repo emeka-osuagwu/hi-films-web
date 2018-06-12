@@ -9,7 +9,9 @@
 		        <h1><a href="#">{{film.name}}</a></h1>
 		        <div class="player">
 		            <div class="video">
-		            	<img :src="film.photo" alt="">
+		            	<router-link :to="film.video_url" target="_blank">
+		            		<img class="video_image" :src="film.photo" alt="">
+		            	</router-link>
 		            </div>
 		            <div class="clearFloat"></div>
 		            <div class="desc">
@@ -31,18 +33,15 @@
 		            </li>
 		        </ul>
 		        <h2><a href="#" name="comment">Leave a Comment</a></h2>
-		        <form class="cmxform" id="contactForm" method="post" action="?" >
+		        <form @submit.prevent class="cmxform" id="contactForm">
 		                <div>
-		                    <span><input type="text" id="name" name="name" value="Name" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Name';}" /></span>
+		                    <span><input v-model="name" type="text" id="name" name="name" value="Name" placeholder="Name" /></span>
 		                </div>
 		                <div>
-		                    <span><input type="text" id="email" name="email" value="Email" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Email';}"/></span>
+		                    <span><textarea v-model="message" id="subject" name="Subject" placeholder="Comment">Comment</textarea></span>
 		                </div>
 		                <div>
-		                    <span><textarea id="subject" name="Subject" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Your feedback';}">Comment</textarea></span>
-		                </div>
-		                <div>
-		                    <span><input class="submit" type="submit" value="Submit"/></span>
+		                    <span><input @click.prevent="sendComment" type="submit" value="Submit"/></span>
 		                </div>
 		        </form>
 		        <div class="clearFloat"></div>
@@ -70,6 +69,9 @@
 		data() {
 			return {
 				film: null,
+				comments: [],
+				name: 'fjkvdjfd',
+				message: 'fjkvdkfkdjf'
 			}
 		},
 		methods: {
@@ -79,7 +81,29 @@
 				.then( res => {
 					this.film = res
 				})
+			},
+			sendComment(){
+
+				if (this.name == "" || this.message == "" || this.name == null || this.message == null) 
+				{
+					alert('name and comment field are required')
+				}
+
+				axios.post(baseUrl + 'films/' + this.film.id + '/comment', {
+					'comment': this.message,
+					name: this.name,
+					film_id: this.film.id					
+				})
+				.then(res => res.data.data)
+				.then( res => {
+					this.film.comments.push(res)
+					this.message = ""
+					this.name = ""
+				})
+
+				console.log(this.name)
 			}
+
 		},
 		created(){
 			this.getFilms()

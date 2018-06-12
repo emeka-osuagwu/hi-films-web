@@ -58,6 +58,9 @@
 					this.updateSpinner({loading: false})
 					this.$emit('event-page-loader', {loading: false});
 				})
+			},
+			sendComment() {
+				this.message
 			}
 		},
 		created() {
