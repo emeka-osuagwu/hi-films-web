@@ -32,10 +32,17 @@
 			login() {
 
 				if (this.email == '' || this.email == null || this.password == '' || this.password == null) {
-					
+					alert('email and password is required')
 				}
 
-				alert('fvdfhdf')
+				axios.post(baseUrl + 'user/login', {
+					'email': this.email,
+					password: this.password				
+				})
+				.then(res => res.data.data)
+				.then( res => {
+					localStorage.setItem('user_data', JSON.stringify(res));
+				})
 			}
 		},
 		created(){
