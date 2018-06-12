@@ -2,7 +2,7 @@
 	<div class="grid">
 		<div class="preview">
 			<router-link :to="{ name: 'FilmComponent', params: { slug: film.slug }}">
-				<img src="../../assets/images/img.jpg" alt="#">
+				<img :src="film.photo" alt="#">
 			</router-link>
 		</div>
 		<div class="data">
@@ -11,7 +11,10 @@
 					{{film.name}}
 				</router-link>
 			</h3>
-			<div class="category"><span class="icon"></span> <a href="#">Tag name</a>, <a href="#">Tag</a></div>
+			<div class="category">
+				<span class="icon"></span> 
+				<span>Tag name</span>
+			</div>
 		</div>
 	</div>
 </template>
@@ -23,7 +26,6 @@
 		methods: {
 		},
 		created(){
-			console.log(this.film)
 		},
 		computed: {
 		}

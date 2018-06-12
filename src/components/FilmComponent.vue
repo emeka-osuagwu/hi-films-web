@@ -21,11 +21,11 @@
 		        <div class="form comment">
 		        <h2></h2>
 		        <ul class="list">
-		            <li>
+		            <li v-for="comment in film.comments">
 		                <div class="preview"><a href="#"><img src="images/img1.jpg" alt="" /></a></div>
 		                <div class="data">
-		                    <div class="title">Jake Sully <span>on 23 jan 2011</span></div>
-		                    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+		                    <div class="title">{{comment.name}} <span>{{comment.created_at}}</span></div>
+		                    <p>{{comment.comment}}</p>
 		                </div>
 		                <div class="clearFloat"></div>
 		            </li>
@@ -77,7 +77,6 @@
 				axios.get(baseUrl + 'films/' + this.$route.params.slug)
 				.then(res => res.data.data[0])
 				.then( res => {
-					console.log(res.name)
 					this.film = res
 				})
 			}

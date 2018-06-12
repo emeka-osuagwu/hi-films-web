@@ -24,27 +24,17 @@
 
 	export default {
 		name: 'HomeComponent',
+		props: ['films'],
 		components: {
 		    appFilms: FilmsComponent
 		},
 		data() {
 			return {
-				films: null,
-				loading: true,
-				isLogin: false
 			}
 		},
 		methods: {
-			getFilms(){
-				axios.get(baseUrl + 'films')
-				.then(res => res.data)
-				.then( res => {
-					this.films = res.data
-				})
-			}
 		},
 		created(){
-			this.getFilms()
 		},
 		computed: {
 		}
