@@ -70,8 +70,8 @@
 			return {
 				film: null,
 				comments: [],
-				name: 'fjkvdjfd',
-				message: 'fjkvdkfkdjf'
+				name: '',
+				message: ''
 			}
 		},
 		methods: {

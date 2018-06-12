@@ -5,12 +5,9 @@
 			<Spinner></Spinner>
 		</div>
 		<div v-if="!isLoading" class="wrap">
-			<div class="sidebar">
-				<app-header></app-header>
-				<app-genres></app-genres>
-				<div class="clearFloat"></div>
-			</div>
 			<div class="content">
+				<TopNavComponent></TopNavComponent>
+				<div class="clearFloat"></div>
 				<router-view v-on:event-page-loader="updateSpinner" v-bind:films="films" />
 				<div class="clearFloat"></div>
 				<app-footer></app-footer>
@@ -27,17 +24,15 @@
 	import { baseUrl } from './helper/Url'
 	import { getHeader } from './helper/Header'
 	import FilmsComponent from './Components/CommonComponents/FilmsComponent.vue';
-	import GenresComponent from './Components/CommonComponents/GenresComponent.vue';
+	import TopNavComponent from './Components/CommonComponents/TopNavComponent.vue';
 	import FooterComponent from './Components/CommonComponents/FooterComponent.vue';
-	import HeaderComponent from './Components/CommonComponents/HeaderComponent.vue';
 
 	export default {
 		components: {
 		    Spinner,
 		    appFilms: FilmsComponent,
-		    appHeader: HeaderComponent,
-		    appFooter: FooterComponent,
-		    appGenres: GenresComponent
+		    TopNavComponent: TopNavComponent,
+		    appFooter: FooterComponent
 		},
 		name: 'App',
 		data() {
