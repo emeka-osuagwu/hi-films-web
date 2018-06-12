@@ -6,7 +6,7 @@
 		<div class="clearFloat"></div>
 		<div class="search-box">
 			<form>
-				<input type="text" placeholder="fvkjdfvknfgknfgfngjnk">
+				<input type="text" placeholder="">
 				<input type="submit" value="">
 			</form>
 		</div>

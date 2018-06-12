@@ -1,6 +1,5 @@
 <template>
 	<div class="wrap">
-
 		<div class="sidebar">
 			<app-header></app-header>
 			<app-genres></app-genres>
@@ -9,7 +8,7 @@
 
 		<div class="content">
 			<div class="txt-center margin-top-18">
-				<a href="#"><img src="images/ad_728x90.png" alt=""></a>
+				<a href="#"><img v-bind:src="images/ad_728x90.png" alt=""></a>
 			</div>
 			<div class="clearFloat"></div>
 			<div class="part">
@@ -38,6 +37,7 @@
 	import FooterComponent from './CommonComponents/FooterComponent.vue';
 	import HeaderComponent from './CommonComponents/HeaderComponent.vue';
 
+
 	export default {
 		name: 'HomeComponent',
 		components: {
@@ -48,6 +48,7 @@
 		},
 		data() {
 			return {
+				loading: true,
 				isLogin: false
 			}
 		},
