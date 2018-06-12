@@ -64,5 +64,10 @@
 	}
 </script>
 
-<style>
+<style scoped>
+	.content {
+	    margin-left: 101px;
+	    margin-top: 20px;
+	}
+
 </style>

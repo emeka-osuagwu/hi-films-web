@@ -33,5 +33,8 @@
 </script>
 
 <style scoped>
-
+	.content {
+	     margin-left: none; 
+	    margin-top: 20px;
+	}
 </style>
