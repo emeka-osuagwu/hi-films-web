@@ -3,6 +3,9 @@
 		<h2>Login</h2>
 		<form @submit.prevent class="cmxform" id="contactForm">
 		        <div>
+		            <span><input v-model="name" type="text" id="name" placeholder="name"/></span>
+		        </div>
+		        <div>
 		            <span><input v-model="email" type="text" id="name" placeholder="email"/></span>
 		        </div>
 		        <div>
@@ -21,28 +24,34 @@
 	import { baseUrl } from '../helper/Url'
 
 	export default {
-		name: 'LoginComponent',
+		name: 'RegisterComponent',
 		data() {
 			return {
-				email: '',
-				password: ''
+				name: 'emeka osuagwu',
+				email: 'emeka@gmail.com',
+				password: 'password'
 			}
 		},
 		methods: {
 			login() {
 
-				if (this.email == '' || this.email == null || this.password == '' || this.password == null) {
-					alert('email and password is required')
+				if (this.email == '' || this.email == null || this.password == '' || this.password == null || this.name == '' || this.name == null) {
+					alert('name, email and password are required')
 				}
 
-				axios.post(baseUrl + 'user/login', {
+				axios.post(baseUrl + 'user/register', {
+					'name': this.name,
 					'email': this.email,
-					password: this.password				
+					'password': this.password				
 				})
 				.then(res => res.data.data)
 				.then( res => {
 					localStorage.setItem('user_data', JSON.stringify(res));
+					alert('account created and logged in ;)')
 				})
+				.catch(error => {
+					alert('email already taken')
+				});
 			}
 		},
 		created(){

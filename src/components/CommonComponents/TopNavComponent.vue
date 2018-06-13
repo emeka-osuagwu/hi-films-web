@@ -12,7 +12,7 @@
 				</router-link>
 			</li>
 			<li class="top_nav_list">
-				<router-link to="/login">
+				<router-link to="/register">
 					Register
 				</router-link>
 			</li>
