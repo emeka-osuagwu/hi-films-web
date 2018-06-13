@@ -1,6 +1,6 @@
 <template>
 	<div class="txt-center margin-top-18">
-		<ul class="top_nav">
+		<ul class="top_nav emeka_nav">
 			<li class="top_nav_list">
 				<router-link to="/films">
 					Welcome: {{reversedMessage}}
@@ -21,6 +21,9 @@
 					Create Film
 				</router-link>
 			</li>
+			<li v-if="loggedIn" class="top_nav_list" @click='logout'>
+				Log out
+			</li>
 		</ul>
 	</div>
 </template>
@@ -35,6 +38,12 @@
 			}
 		},
 		methods: {
+			logout() {
+				this.reversedMessage = "Not authenticated"
+				localStorage.removeItem('user_data');
+				this.loggedIn = false
+				this.$router.push('/films')
+			}
 		},
 		created(){
 		},
@@ -56,8 +65,3 @@
 	}
 </script>
 
-<style scoped>
-.txt-center{
-	margin-top: 30px;
-}
-</style>

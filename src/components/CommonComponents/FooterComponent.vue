@@ -18,12 +18,10 @@
 	<li><a href="#">Home</a></li>
 	<li><a href="#">Downloads</a></li>
 	<li><a href="#">Uploads</a></li>
-	<li><a href="feedback.html">Contact</a></li><li><a href="#">Support</a></li>
 	<li><a href="#">About</a></li>
 	</ul>
 	<div class="clearFloat"></div>
 	<div class="copy">
-	<p>&copy; 2012 Mad. All Rights Reserved | Design by <a href="http://w3layouts.com">W3Layouts</a></p>
 	</div>
 	</footer>
 </template>

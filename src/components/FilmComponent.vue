@@ -1,9 +1,7 @@
 <template>
 	<div>
 		<div class="content">
-		    <div class="txt-center margin-top-18">
-		        <a href="#"><img src="images/ad_728x90.png" alt=""></a>
-		    </div>
+		<TopNavComponent></TopNavComponent>
 		    <div class="clearFloat"></div>
 		    <div class="part">
 		        <h1><a href="#">{{film.name}}</a></h1>
@@ -60,11 +58,13 @@
 	import { baseUrl } from '../helper/Url'
 
 	import FilmsComponent from './CommonComponents/FilmsComponent.vue';
+	import TopNavComponent from './CommonComponents/TopNavComponent.vue';
 
 	export default {
 		name: 'FilmComponent',
 		props: ['slug'],
 		components: {
+			TopNavComponent: TopNavComponent
 		},
 		data() {
 			return {
@@ -120,5 +120,11 @@
 </script>
 
 <style scoped>
-
+	.preview {
+	    height: unset;
+	    background: unset;
+	}
+	ul.top_nav.emeka_nav {
+	    margin-left: 30px;
+	}
 </style>

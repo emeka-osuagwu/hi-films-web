@@ -45,3 +45,13 @@ li.top_nav_list {
     margin-right: 30px;
     margin-bottom: 30px;
 }
+
+.dropdown.v-select.form-submit.single.searchable {
+    width: 54%;
+    margin-bottom: 20px;
+}
+
+.preview {
+    height: 172px;
+    background: gray;
+}

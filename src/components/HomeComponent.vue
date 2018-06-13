@@ -10,7 +10,6 @@
 		<div class="clearFloat"></div>
 		<app-footer></app-footer>
 	</div>
-
 </template>
 
 <script>
@@ -20,13 +19,15 @@
 
 	import FilmsComponent from './CommonComponents/FilmsComponent.vue';
 	import TopNavComponent from './CommonComponents/TopNavComponent.vue';
+	import FooterComponent from './CommonComponents/FooterComponent.vue';
 
 	export default {
 		name: 'HomeComponent',
 		props: ['films'],
 		components: {
 		    appFilms: FilmsComponent,
-		    TopNavComponent: TopNavComponent
+		    TopNavComponent: TopNavComponent,
+		    appFooter: FooterComponent
 		},
 		data() {
 			return {
@@ -43,4 +44,19 @@
 
 <style scoped>
 
+	.preview {
+	    height: 172px;
+	    background: gray;
+	}
+
+	ul.top_nav {
+	    float: left;
+	    margin-left: -1px;
+	}
+
+	li.top_nav_list {
+	    /* padding: 0px 20px; */
+	    margin-right: 30px;
+	    margin-bottom: 30px;
+	}
 </style>
