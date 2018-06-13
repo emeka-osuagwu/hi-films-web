@@ -13,7 +13,7 @@
 			</h3>
 			<div class="category">
 				<span class="icon"></span> 
-				<span>Tag name</span>
+				<span v-for="genre in film.genres">{{genre.genre[0].name}}</span>
 			</div>
 		</div>
 	</div>

@@ -55,3 +55,7 @@ li.top_nav_list {
     height: 172px;
     background: gray;
 }
+
+.video_image {
+    cursor: pointer;
+}

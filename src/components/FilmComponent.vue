@@ -7,9 +7,7 @@
 		        <h1><a href="#">{{film.name}}</a></h1>
 		        <div class="player">
 		            <div class="video">
-		            	<router-link :to="film.video_url" target="_blank">
-		            		<img class="video_image" :src="film.photo" alt="">
-		            	</router-link>
+		            	<img @click='openVideo' class="video_image" :src="film.photo" alt="">
 		            </div>
 		            <div class="clearFloat"></div>
 		            <div class="desc">
@@ -108,6 +106,9 @@
 					})
 					
 				}
+			},
+			openVideo(){
+				window.open(this.film.video_url);
 			}
 
 		},
