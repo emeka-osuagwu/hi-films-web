@@ -1,6 +1,10 @@
 <template>
+
+<div class="content">
 	<div class="part">
-		<h2>Login</h2>
+		<TopNavComponent></TopNavComponent>
+		<div class="clearFloat"></div>
+		<h2>Add new film</h2>
 		<form @submit.prevent class="cmxform" id="contactForm">
 		        <div>
 		            <span><input v-model="name" type="text" id="name" placeholder="name"/></span>
@@ -15,7 +19,11 @@
 		            <span><input @click.prevent="login" type="submit" value="Submit"/></span>
 		        </div>
 		</form>
-	</div>
+	</div>		
+	<div class="clearFloat"></div>
+	<app-footer></app-footer>
+</div>
+
 </template>
 
 <script>
@@ -23,8 +31,13 @@
 	import { getHeader } from '../helper/Header'
 	import { baseUrl } from '../helper/Url'
 
+	import TopNavComponent from './CommonComponents/TopNavComponent.vue';
+
 	export default {
-		name: 'RegisterComponent',
+		name: 'CreateComponent',
+		components: {
+		    TopNavComponent: TopNavComponent
+		},
 		data() {
 			return {
 				name: '',
@@ -46,9 +59,6 @@
 				})
 				.then(res => res.data.data)
 				.then( res => {
-					this.name = ""
-					this.email = ""
-					this.password = ""
 					localStorage.setItem('user_data', JSON.stringify(res));
 					alert('account created and logged in ;)')
 				})

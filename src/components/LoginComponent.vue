@@ -41,8 +41,14 @@
 				})
 				.then(res => res.data.data)
 				.then( res => {
+					this.password = ""
+					this.email = ""
 					localStorage.setItem('user_data', JSON.stringify(res));
+
 				})
+				.catch(error => {
+					alert('invalid user name of password')
+				});
 			}
 		},
 		created(){

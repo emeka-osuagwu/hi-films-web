@@ -84,24 +84,30 @@
 			},
 			sendComment(){
 
-				if (this.name == "" || this.message == "" || this.name == null || this.message == null) 
+				const auth = localStorage.getItem('user_data');
+
+				if (!auth) {
+					alert('you need to login to make a comment')
+				}
+				else if (this.name == "" || this.message == "" || this.name == null || this.message == null) 
 				{
 					alert('name and comment field are required')
 				}
-
-				axios.post(baseUrl + 'films/' + this.film.id + '/comment', {
-					'comment': this.message,
-					name: this.name,
-					film_id: this.film.id					
-				})
-				.then(res => res.data.data)
-				.then( res => {
-					this.film.comments.push(res)
-					this.message = ""
-					this.name = ""
-				})
-
-				console.log(this.name)
+				else
+				{
+					axios.post(baseUrl + 'films/' + this.film.id + '/comment', {
+						'comment': this.message,
+						name: this.name,
+						film_id: this.film.id					
+					})
+					.then(res => res.data.data)
+					.then( res => {
+						this.film.comments.push(res)
+						this.message = ""
+						this.name = ""
+					})
+					
+				}
 			}
 
 		},
